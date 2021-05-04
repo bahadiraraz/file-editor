@@ -1,6 +1,6 @@
 import sys,os,shutil
 class konum():
-    def __init__(self,path=r"C:\Users\b123q\OneDrive\Masaüstü\testbu",dosyaicerigi=os.listdir(r"C:\Users\b123q\OneDrive\Masaüstü\testbu")):
+    def __init__(self,path=rf"{os.getcwd()}",dosyaicerigi=os.listdir(rf"{os.getcwd()}")):
         self.path = path
         self.dosyaicerigi = dosyaicerigi
         os.chdir(path)
@@ -66,7 +66,10 @@ class komut():
         a = input("yeni dizin")
         konum.path = rf"{a}"
         konum.dosyaicerigi = os.listdir(rf"{a}")
-
+    def ilk(self):
+        a = input("path giriniz")
+        konum.path = rf"{a}"
+        konum.dosyaicerigi = os.listdir(rf"{a}")
 
 
     def icerikgoster(self):
@@ -296,15 +299,5 @@ cikmak icin q ya basin
 
 if __name__ == "__main__":
     print("programa hos geldin")
-    def degis(a=r"C:\Users\b123q\OneDrive\Masaüstü\testbu"):
-        b = input("pathi girin:")
-        if b == "":
-            konum.path = a
-            konum.dosyaicerigi = a
-        else:
-            konum.path = b
-            konum.dosyaicerigi = b
-
-
-    degis()
+    komut.ilk()
     Menu().asil()
