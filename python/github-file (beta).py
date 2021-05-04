@@ -3,7 +3,7 @@ class konum():
     def __init__(self,path=rf"{os.getcwd()}",dosyaicerigi=os.listdir(rf"{os.getcwd()}")):
         self.path = path
         self.dosyaicerigi = dosyaicerigi
-        os.chdir(path)
+
 konum= konum()
 class komut():
 
@@ -66,11 +66,12 @@ class komut():
         a = input("yeni dizin")
         konum.path = rf"{a}"
         konum.dosyaicerigi = os.listdir(rf"{a}")
+        os.chdir(a)
     def ilk(self):
         a = input("path giriniz")
         konum.path = rf"{a}"
         konum.dosyaicerigi = os.listdir(rf"{a}")
-
+        os.chdir(a)
 
     def icerikgoster(self):
         for i in konum.dosyaicerigi: print(i)
