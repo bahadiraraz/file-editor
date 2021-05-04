@@ -1,4 +1,4 @@
 # file-editor
-python program that can edit files on.
+Python based file editing program.
 
 beta process now It will be develop !!!
