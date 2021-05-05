@@ -1,4 +1,4 @@
-import sys,os,shutil
+import sys,os,shutil,time
 class konum():
     def __init__(self,path=rf"{os.getcwd()}",dosyaicerigi=os.listdir(rf"{os.getcwd()}")):
         self.path = path
@@ -6,14 +6,16 @@ class konum():
 
 konum= konum()
 class komut():
-
+    konum.dosyaicerigi = os.listdir(konum.path)
     def create(self, a):
+        konum.dosyaicerigi = os.listdir(konum.path)
         if os.path.exists(a):
             print("olusturmaya calistiginiz klasor  zaten var")
             pass
         else:
             print("dosya olusturuldu")
             os.makedirs(a)
+            konum.dosyaicerigi = os.listdir(konum.path)
 
 
 
@@ -24,7 +26,7 @@ class komut():
             def dene(a):
                 shutil.rmtree(a)
                 print("silme islemi basarili")
-                konum.dosyaicerigi.remove(a)
+                konum.dosyaicerigi = os.listdir(konum.path)
             dene(a)
             return silme.asil()
         except FileNotFoundError:
@@ -41,7 +43,7 @@ class komut():
             icerik = os.listdir(d)
             for file in icerik:
                 os.rmdir(rf'{d}\{file}')
-
+            konum.dosyaicerigi = os.listdir(konum.path)
         except FileNotFoundError:
             print("boyle bir klasor yok")
             return self.delete()
@@ -53,6 +55,7 @@ class komut():
             a = int(input("kac tane dosya olusturmak istiyorsunuz"))
             for i in range(1, a +1):
                 os.makedirs(rf"{konum.path}\00{i}")
+            konum.dosyaicerigi = os.listdir(konum.path)
         except  ValueError:
             print("sayi gir aqdum")
             return self.git_create()
@@ -60,6 +63,17 @@ class komut():
             print("olusturmaya calistiginiz sayilarda dosya var")
             return self.git_create()
 
+    def sirali_girme(self):
+        try:
+            a = int(input("kac tane dosya olusturmak istiyorsunuz"))
+            for i in range(1, a + 1):
+                v = input(rf"{i}'inci dosyanin adini giriniz")
+                os.makedirs(rf"{konum.path}\{str(i).zfill(2)}-{v}")
+            konum.dosyaicerigi = os.listdir(konum.path)
+
+        except FileExistsError:
+            print("olusturmaya calistiginiz dosya var")
+            pass
 
 
     def dizin_degis(self):
@@ -74,8 +88,14 @@ class komut():
         os.chdir(a)
 
     def icerikgoster(self):
-        for i in konum.dosyaicerigi: print(i)
-
+        konum.dosyaicerigi = (os.listdir(konum.path))
+        for i in (konum.dosyaicerigi): print(i)
+    def full_temizle(self):
+        konum.dosyaicerigi = os.listdir(konum.path)
+        icerik = konum.dosyaicerigi
+        for file in icerik:
+            os.rmdir(rf'{konum.path}\{file}')
+        konum.dosyaicerigi = os.listdir(konum.path)
 
 
     def tumicerik(self):
@@ -176,11 +196,12 @@ class dosya():
         self.secenek = {
             "1": komut.dosya_ac,
             "2":komut.git_create,
-            "3":komut.isim_degis,
-            "4":komut.tumicerik,
-            "5":komut.dosyalar,
-            "6":komut.txt_olstur,
-            "7":komut.dosya_bul_uzanti,
+            "3":komut.sirali_girme,
+            "4":komut.isim_degis,
+            "5":komut.tumicerik,
+            "6":komut.dosyalar,
+            "7":komut.txt_olstur,
+            "8":komut.dosya_bul_uzanti,
             "q": self.quit
         }
 
@@ -190,11 +211,12 @@ class dosya():
 menu
 1.dosya acma
 2.git acma
-3.isim degisme
-4.tum icerik
-5.sadece dosyalar
-6.txt dosyasi olustur
-7.uzantili dosya bul
+3.sirali dosya acma
+4.isim degisme
+5.tum icerik
+6.sadece dosyalar
+7.txt dosyasi olustur
+8.uzantili dosya bul
 ana menuye donmek icin q 
     """)
 
@@ -213,10 +235,12 @@ ana menuye donmek icin q
         return Menu().asil()
 dosya = dosya()
 class silme():
+    konum.dosyaicerigi = os.listdir(konum.path)
     def __init__(self):
         self.secenek = {
             "1": komut.silme,
             "2": komut.delete,
+            "3": komut.full_temizle,
             "q": self.quit
         }
 
@@ -225,7 +249,8 @@ class silme():
 menu
 1.dosya silme
 2.dosya icerik silme
-3.ana menuye donme 
+3.su anki klasoru temizleme
+q.ana menuye donme 
         """)
 
     def asil(self):
