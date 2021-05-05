@@ -82,10 +82,14 @@ class komut():
         konum.dosyaicerigi = os.listdir(rf"{a}")
         os.chdir(a)
     def ilk(self):
-        a = input("path giriniz")
-        konum.path = rf"{a}"
-        konum.dosyaicerigi = os.listdir(rf"{a}")
-        os.chdir(a)
+        try:
+            a = input("path giriniz")
+            konum.path = rf"{a}"
+            konum.dosyaicerigi = os.listdir(rf"{a}")
+            os.chdir(a)
+        except:
+            print("boyle bir path bulunamadi")
+            return self.ilk()
 
     def icerikgoster(self):
         konum.dosyaicerigi = (os.listdir(konum.path))
