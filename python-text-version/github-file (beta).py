@@ -1,4 +1,5 @@
 import sys,os,shutil,time
+#BAHADIR54
 class konum():
     def __init__(self,path=rf"{os.getcwd()}",dosyaicerigi=os.listdir(rf"{os.getcwd()}")):
         self.path = path
