@@ -8,6 +8,9 @@ class Ui_MainWindow(object):
         MainWindow.setStyleSheet(";\n"
 "background-color: rgb(54, 54, 54);")
         MainWindow.setAnimated(True)
+        self.b = "QPushButton""{""border-radius : 50;""border : 2px solid black;""}""QPushButton::pressed""{""background-color : rgb(0, 0, 0) ;""color : rgb(255,255,255);""}"
+
+        self.a = "QPushButton""{""background-color : red;""border-radius : 6 ;""color : black;""border : 2px solid black""}""QPushButton::pressed""{""background-color : rgb(0, 0, 0) ;""color : rgb(255,255,255);""}"
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setStyleSheet("color: rgb(0, 0, 0);")
         self.centralwidget.setObjectName("centralwidget")
@@ -63,17 +66,11 @@ class Ui_MainWindow(object):
         self.genel_ozellikler_yazi.setObjectName("genel_ozellikler_yazi")
         self.dosya_islem_buton = QtWidgets.QPushButton(self.ana_menu_sayfa)
         self.dosya_islem_buton.setGeometry(QtCore.QRect(180, 100, 75, 23))
-        self.dosya_islem_buton.setStyleSheet("background-color : red;\n"
-"border-radius : 4 ;\n"
-"color : black;\n"
-"border : 2px solid black")
+        self.dosya_islem_buton.setStyleSheet(self.a)
         self.dosya_islem_buton.setObjectName("dosya_islem_buton")
         self.silme_islem_buton = QtWidgets.QPushButton(self.ana_menu_sayfa)
         self.silme_islem_buton.setGeometry(QtCore.QRect(180, 130, 75, 23))
-        self.silme_islem_buton.setStyleSheet("background-color : red;\n"
-"border-radius : 4 ;\n"
-"color : black;\n"
-"border : 2px solid black")
+        self.silme_islem_buton.setStyleSheet(self.a)
         self.silme_islem_buton.setObjectName("silme_islem_buton")
         self.genel_ozellikler_yazma_yeri = QtWidgets.QLabel(self.ana_menu_sayfa)
         self.genel_ozellikler_yazma_yeri.setGeometry(QtCore.QRect(200, 300, 371, 121))
@@ -85,10 +82,7 @@ class Ui_MainWindow(object):
         self.uyari.setObjectName("uyari")
         self.dizin_degisme_buton = QtWidgets.QPushButton(self.ana_menu_sayfa)
         self.dizin_degisme_buton.setGeometry(QtCore.QRect(180, 170, 75, 23))
-        self.dizin_degisme_buton.setStyleSheet("background-color : red;\n"
-"border-radius : 4 ;\n"
-"color : black;\n"
-"border : 2px solid black")
+        self.dizin_degisme_buton.setStyleSheet(self.a)
         self.dizin_degisme_buton.setObjectName("dizin_degisme_buton")
         self.stackedWidget.addWidget(self.ana_menu_sayfa)
         self.dosya_menu = QtWidgets.QWidget()
@@ -108,17 +102,11 @@ class Ui_MainWindow(object):
         self.dosya_acma_yazi.setObjectName("dosya_acma_yazi")
         self.dosya_menu_buton1 = QtWidgets.QPushButton(self.dosya_menu)
         self.dosya_menu_buton1.setGeometry(QtCore.QRect(210, 70, 75, 23))
-        self.dosya_menu_buton1.setStyleSheet("background-color : red;\n"
-"border-radius : 4 ;\n"
-"color : black;\n"
-"border : 2px solid black")
+        self.dosya_menu_buton1.setStyleSheet(self.a)
         self.dosya_menu_buton1.setObjectName("dosya_menu_buton1")
         self.dosya_menu_buton3 = QtWidgets.QPushButton(self.dosya_menu)
         self.dosya_menu_buton3.setGeometry(QtCore.QRect(210, 140, 75, 23))
-        self.dosya_menu_buton3.setStyleSheet("background-color : red;\n"
-"border-radius : 4 ;\n"
-"color : black;\n"
-"border : 2px solid black")
+        self.dosya_menu_buton3.setStyleSheet(self.a)
         self.dosya_menu_buton3.setObjectName("dosya_menu_buton3")
         self.sirali_dosya_acma_yazi = QtWidgets.QLabel(self.dosya_menu)
         self.sirali_dosya_acma_yazi.setGeometry(QtCore.QRect(60, 130, 141, 31))
@@ -144,10 +132,7 @@ class Ui_MainWindow(object):
         self.dosya_isim_degisme_yazi.setObjectName("dosya_isim_degisme_yazi")
         self.dosya_menu_buton4 = QtWidgets.QPushButton(self.dosya_menu)
         self.dosya_menu_buton4.setGeometry(QtCore.QRect(210, 210, 75, 23))
-        self.dosya_menu_buton4.setStyleSheet("background-color : red;\n"
-"border-radius : 4 ;\n"
-"color : black;\n"
-"border : 2px solid black")
+        self.dosya_menu_buton4.setStyleSheet(self.a)
         self.dosya_menu_buton4.setObjectName("dosya_menu_buton4")
         self.tum_icerigi_goster_yazi = QtWidgets.QLabel(self.dosya_menu)
         self.tum_icerigi_goster_yazi.setGeometry(QtCore.QRect(60, 270, 111, 31))
@@ -162,11 +147,7 @@ class Ui_MainWindow(object):
         self.tum_icerigi_goster_yazi.setObjectName("tum_icerigi_goster_yazi")
         self.dosya_menu_buton5 = QtWidgets.QPushButton(self.dosya_menu)
         self.dosya_menu_buton5.setGeometry(QtCore.QRect(210, 280, 75, 23))
-        self.dosya_menu_buton5.setStyleSheet("background-color : red;\n"
-"border-radius : 4 ;\n"
-"color : black;\n"
-"border : 2px solid black\n"
-"                        ")
+        self.dosya_menu_buton5.setStyleSheet(self.a)
         self.dosya_menu_buton5.setObjectName("dosya_menu_buton5")
         self.sadece_dosya_yazi = QtWidgets.QLabel(self.dosya_menu)
         self.sadece_dosya_yazi.setGeometry(QtCore.QRect(60, 330, 111, 31))
@@ -181,10 +162,7 @@ class Ui_MainWindow(object):
         self.sadece_dosya_yazi.setObjectName("sadece_dosya_yazi")
         self.dosya_menu_buton6 = QtWidgets.QPushButton(self.dosya_menu)
         self.dosya_menu_buton6.setGeometry(QtCore.QRect(210, 340, 75, 23))
-        self.dosya_menu_buton6.setStyleSheet("background-color : red;\n"
-"border-radius : 4 ;\n"
-"color : black;\n"
-"border : 2px solid black")
+        self.dosya_menu_buton6.setStyleSheet(self.a)
         self.dosya_menu_buton6.setObjectName("dosya_menu_buton6")
         self.txt_yazi = QtWidgets.QLabel(self.dosya_menu)
         self.txt_yazi.setGeometry(QtCore.QRect(330, 70, 111, 31))
@@ -199,10 +177,7 @@ class Ui_MainWindow(object):
         self.txt_yazi.setObjectName("txt_yazi")
         self.dosya_menu_buton7 = QtWidgets.QPushButton(self.dosya_menu)
         self.dosya_menu_buton7.setGeometry(QtCore.QRect(480, 70, 75, 23))
-        self.dosya_menu_buton7.setStyleSheet("background-color : red;\n"
-"border-radius : 4 ;\n"
-"color : black;\n"
-"border : 2px solid black")
+        self.dosya_menu_buton7.setStyleSheet(self.a)
         self.dosya_menu_buton7.setObjectName("dosya_menu_buton7")
         self.uzantili_dosya_bul_yazi = QtWidgets.QLabel(self.dosya_menu)
         self.uzantili_dosya_bul_yazi.setGeometry(QtCore.QRect(330, 140, 121, 31))
@@ -214,20 +189,15 @@ class Ui_MainWindow(object):
         self.uzantili_dosya_bul_yazi.setObjectName("uzantili_dosya_bul_yazi")
         self.ana_menu_buton_dosya = QtWidgets.QPushButton(self.dosya_menu)
         self.ana_menu_buton_dosya.setGeometry(QtCore.QRect(480, 390, 71, 21))
-        self.ana_menu_buton_dosya.setStyleSheet("border-radius : 50;\n"
-"border : 2px solid black;")
+        self.ana_menu_buton_dosya.setStyleSheet(self.b)
         self.ana_menu_buton_dosya.setObjectName("ana_menu_buton_dosya")
         self.silme_islem_donus_dosya = QtWidgets.QPushButton(self.dosya_menu)
         self.silme_islem_donus_dosya.setGeometry(QtCore.QRect(360, 390, 81, 21))
-        self.silme_islem_donus_dosya.setStyleSheet("border-radius : 50;\n"
-"border : 2px solid black;")
+        self.silme_islem_donus_dosya.setStyleSheet(self.b)
         self.silme_islem_donus_dosya.setObjectName("silme_islem_donus_dosya")
         self.dosya_menu_buton8 = QtWidgets.QPushButton(self.dosya_menu)
         self.dosya_menu_buton8.setGeometry(QtCore.QRect(480, 140, 75, 23))
-        self.dosya_menu_buton8.setStyleSheet("background-color : red;\n"
-"border-radius : 4 ;\n"
-"color : black;\n"
-"border : 2px solid black")
+        self.dosya_menu_buton8.setStyleSheet(self.a)
         self.dosya_menu_buton8.setObjectName("dosya_menu_buton8")
         self.stackedWidget.addWidget(self.dosya_menu)
         self.silme_menu = QtWidgets.QWidget()
@@ -235,13 +205,11 @@ class Ui_MainWindow(object):
         self.silme_menu.setObjectName("silme_menu")
         self.pushButton = QtWidgets.QPushButton(self.silme_menu)
         self.pushButton.setGeometry(QtCore.QRect(480, 390, 75, 23))
-        self.pushButton.setStyleSheet("border-radius : 50;\n"
-"border : 2px solid black;")
+        self.pushButton.setStyleSheet(self.b)
         self.pushButton.setObjectName("pushButton")
         self.pushButton_2 = QtWidgets.QPushButton(self.silme_menu)
         self.pushButton_2.setGeometry(QtCore.QRect(360, 390, 75, 23))
-        self.pushButton_2.setStyleSheet("border-radius : 50;\n"
-"border : 2px solid black;")
+        self.pushButton_2.setStyleSheet(self.b)
         self.pushButton_2.setObjectName("pushButton_2")
         self.yazi = QtWidgets.QLabel(self.silme_menu)
         self.yazi.setGeometry(QtCore.QRect(20, 20, 61, 16))
@@ -254,10 +222,7 @@ class Ui_MainWindow(object):
         self.yazi_3.setObjectName("yazi_3")
         self.full_temizle_buton = QtWidgets.QPushButton(self.silme_menu)
         self.full_temizle_buton.setGeometry(QtCore.QRect(150, 130, 75, 23))
-        self.full_temizle_buton.setStyleSheet("background-color : red;\n"
-"border-radius : 4 ;\n"
-"color : black;\n"
-"border : 2px solid black")
+        self.full_temizle_buton.setStyleSheet(self.a)
         self.full_temizle_buton.setObjectName("full_temizle_buton")
         self.silme_menu_yazi = QtWidgets.QLabel(self.silme_menu)
         self.silme_menu_yazi.setGeometry(QtCore.QRect(360, 30, 221, 41))
@@ -271,17 +236,11 @@ class Ui_MainWindow(object):
         self.dosya_silme_icerigiyazi.setObjectName("dosya_silme_icerigiyazi")
         self.dosya_sil_buton = QtWidgets.QPushButton(self.silme_menu)
         self.dosya_sil_buton.setGeometry(QtCore.QRect(250, 20, 75, 23))
-        self.dosya_sil_buton.setStyleSheet("background-color : red;\n"
-"border-radius : 4 ;\n"
-"color : black;\n"
-"border : 2px solid black")
+        self.dosya_sil_buton.setStyleSheet(self.a)
         self.dosya_sil_buton.setObjectName("dosya_sil_buton")
         self.icerik_sil_buton = QtWidgets.QPushButton(self.silme_menu)
         self.icerik_sil_buton.setGeometry(QtCore.QRect(250, 70, 75, 23))
-        self.icerik_sil_buton.setStyleSheet("background-color : red;\n"
-"border-radius : 4 ;\n"
-"color : black;\n"
-"border : 2px solid black")
+        self.icerik_sil_buton.setStyleSheet(self.a)
         self.icerik_sil_buton.setObjectName("icerik_sil_buton")
         self.silme_menu_liste = QtWidgets.QListWidget(self.silme_menu)
         self.silme_menu_liste.setGeometry(QtCore.QRect(10, 171, 241, 281))
@@ -292,8 +251,7 @@ class Ui_MainWindow(object):
         self.dizin_degisme_menu.setObjectName("dizin_degisme_menu")
         self.dizin_degis_tamam = QtWidgets.QPushButton(self.dizin_degisme_menu)
         self.dizin_degis_tamam.setGeometry(QtCore.QRect(500, 390, 75, 23))
-        self.dizin_degis_tamam.setStyleSheet("border-radius : 50;\n"
-"border : 2px solid black;")
+        self.dizin_degis_tamam.setStyleSheet(self.b)
         self.dizin_degis_tamam.setObjectName("dizin_degis_tamam")
         self.dizin_gir_yazi = QtWidgets.QLabel(self.dizin_degisme_menu)
         self.dizin_gir_yazi.setGeometry(QtCore.QRect(70, 140, 91, 31))
@@ -306,8 +264,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(14)
         self.dizin_gir.setFont(font)
-        self.dizin_gir.setStyleSheet("border-radius : 50;\n"
-"border : 2px solid black;")
+        self.dizin_gir.setStyleSheet(self.b)
         self.dizin_gir.setText("")
         self.dizin_gir.setObjectName("dizin_gir")
         self.dizin_uyari = QtWidgets.QLabel(self.dizin_degisme_menu)
@@ -323,8 +280,7 @@ class Ui_MainWindow(object):
         self.dizin_su_anki_dizin.setObjectName("dizin_su_anki_dizin")
         self.dizin_ana_menu = QtWidgets.QPushButton(self.dizin_degisme_menu)
         self.dizin_ana_menu.setGeometry(QtCore.QRect(10, 390, 75, 23))
-        self.dizin_ana_menu.setStyleSheet("border-radius : 50;\n"
-"border : 2px solid black;")
+        self.dizin_ana_menu.setStyleSheet(self.b)
         self.dizin_ana_menu.setObjectName("dizin_ana_menu")
         self.stackedWidget.addWidget(self.dizin_degisme_menu)
         self.dosya_acma_menu = QtWidgets.QWidget()
@@ -336,23 +292,18 @@ class Ui_MainWindow(object):
         self.dosya_acma_menu_dosya_adi.setObjectName("dosya_acma_menu_dosya_adi")
         self.geri_dosya_menu = QtWidgets.QPushButton(self.dosya_acma_menu)
         self.geri_dosya_menu.setGeometry(QtCore.QRect(490, 400, 75, 23))
-        self.geri_dosya_menu.setStyleSheet("border-radius : 50;\n"
-"border : 2px solid black;")
+        self.geri_dosya_menu.setStyleSheet(self.b)
         self.geri_dosya_menu.setObjectName("geri_dosya_menu")
         self.metin = QtWidgets.QLabel(self.dosya_acma_menu)
         self.metin.setGeometry(QtCore.QRect(220, 40, 161, 21))
         self.metin.setObjectName("metin")
         self.ana_menu = QtWidgets.QPushButton(self.dosya_acma_menu)
         self.ana_menu.setGeometry(QtCore.QRect(370, 400, 75, 23))
-        self.ana_menu.setStyleSheet("border-radius : 50;\n"
-"border : 2px solid black;")
+        self.ana_menu.setStyleSheet(self.b)
         self.ana_menu.setObjectName("ana_menu")
         self.pushButton_3 = QtWidgets.QPushButton(self.dosya_acma_menu)
         self.pushButton_3.setGeometry(QtCore.QRect(500, 70, 71, 23))
-        self.pushButton_3.setStyleSheet("background-color : red;\n"
-"border-radius : 4 ;\n"
-"color : black;\n"
-"border : 2px solid black")
+        self.pushButton_3.setStyleSheet(self.a)
         self.pushButton_3.setDefault(False)
         self.pushButton_3.setObjectName("pushButton_3")
         self.label = QtWidgets.QLabel(self.dosya_acma_menu)
@@ -380,30 +331,22 @@ class Ui_MainWindow(object):
         self.sirali_ac_dosya_liste.setObjectName("sirali_ac_dosya_liste")
         self.sirali_acma_buton = QtWidgets.QPushButton(self.sirali_ac_menu)
         self.sirali_acma_buton.setGeometry(QtCore.QRect(490, 180, 75, 23))
-        self.sirali_acma_buton.setStyleSheet("background-color : red;\n"
-"border-radius : 4 ;\n"
-"color : black;\n"
-"border : 2px solid black")
+        self.sirali_acma_buton.setStyleSheet(self.a)
         self.sirali_acma_buton.setObjectName("sirali_acma_buton")
         self.git_ac_sayac = QtWidgets.QSpinBox(self.sirali_ac_menu)
         self.git_ac_sayac.setGeometry(QtCore.QRect(240, 140, 42, 22))
         self.git_ac_sayac.setObjectName("git_ac_sayac")
         self.git_acma_buton = QtWidgets.QPushButton(self.sirali_ac_menu)
         self.git_acma_buton.setGeometry(QtCore.QRect(320, 140, 75, 23))
-        self.git_acma_buton.setStyleSheet("background-color : red;\n"
-"border-radius : 4 ;\n"
-"color : black;\n"
-"border : 2px solid black")
+        self.git_acma_buton.setStyleSheet(self.a)
         self.git_acma_buton.setObjectName("git_acma_buton")
         self.sirali_ac_menu__geri = QtWidgets.QPushButton(self.sirali_ac_menu)
         self.sirali_ac_menu__geri.setGeometry(QtCore.QRect(490, 400, 75, 23))
-        self.sirali_ac_menu__geri.setStyleSheet("border-radius : 50;\n"
-"border : 2px solid black;")
+        self.sirali_ac_menu__geri.setStyleSheet(self.b)
         self.sirali_ac_menu__geri.setObjectName("sirali_ac_menu__geri")
         self.sirali_ac_menu_ana_menu = QtWidgets.QPushButton(self.sirali_ac_menu)
         self.sirali_ac_menu_ana_menu.setGeometry(QtCore.QRect(360, 400, 75, 23))
-        self.sirali_ac_menu_ana_menu.setStyleSheet("border-radius : 50;\n"
-"border : 2px solid black;")
+        self.sirali_ac_menu_ana_menu.setStyleSheet(self.b)
         self.sirali_ac_menu_ana_menu.setObjectName("sirali_ac_menu_ana_menu")
         self.sirali_ac_uyari = QtWidgets.QLabel(self.sirali_ac_menu)
         self.sirali_ac_uyari.setGeometry(QtCore.QRect(320, 270, 221, 16))
@@ -427,10 +370,7 @@ class Ui_MainWindow(object):
         self.uzantili_dosya_yazi.setObjectName("uzantili_dosya_yazi")
         self.uzanti_ara_buton = QtWidgets.QPushButton(self.sadece_dosyala_menu)
         self.uzanti_ara_buton.setGeometry(QtCore.QRect(460, 100, 75, 23))
-        self.uzanti_ara_buton.setStyleSheet("background-color : red;\n"
-"border-radius : 4 ;\n"
-"color : black;\n"
-"border : 2px solid black")
+        self.uzanti_ara_buton.setStyleSheet(self.a)
         self.uzanti_ara_buton.setObjectName("uzanti_ara_buton")
         self.uzanti_yazma = QtWidgets.QLineEdit(self.sadece_dosyala_menu)
         self.uzanti_yazma.setGeometry(QtCore.QRect(330, 100, 113, 20))
@@ -450,20 +390,15 @@ class Ui_MainWindow(object):
         self.yazi_7.setObjectName("yazi_7")
         self.txt_olustur_buton = QtWidgets.QPushButton(self.sadece_dosyala_menu)
         self.txt_olustur_buton.setGeometry(QtCore.QRect(460, 160, 75, 23))
-        self.txt_olustur_buton.setStyleSheet("background-color : red;\n"
-"border-radius : 4 ;\n"
-"color : black;\n"
-"border : 2px solid black")
+        self.txt_olustur_buton.setStyleSheet(self.a)
         self.txt_olustur_buton.setObjectName("txt_olustur_buton")
         self.sadece_dosya_geri = QtWidgets.QPushButton(self.sadece_dosyala_menu)
         self.sadece_dosya_geri.setGeometry(QtCore.QRect(500, 420, 75, 23))
-        self.sadece_dosya_geri.setStyleSheet("border-radius : 50;\n"
-"border : 2px solid black;")
+        self.sadece_dosya_geri.setStyleSheet(self.b)
         self.sadece_dosya_geri.setObjectName("sadece_dosya_geri")
         self.sadece_dosya_ana_menu = QtWidgets.QPushButton(self.sadece_dosyala_menu)
         self.sadece_dosya_ana_menu.setGeometry(QtCore.QRect(380, 420, 75, 23))
-        self.sadece_dosya_ana_menu.setStyleSheet("border-radius : 50;\n"
-"border : 2px solid black;")
+        self.sadece_dosya_ana_menu.setStyleSheet(self.b)
         self.sadece_dosya_ana_menu.setObjectName("sadece_dosya_ana_menu")
         self.stackedWidget.addWidget(self.sadece_dosyala_menu)
         self.tum_dosya_menu = QtWidgets.QWidget()
@@ -480,13 +415,11 @@ class Ui_MainWindow(object):
         self.yazi_4.setObjectName("yazi_4")
         self.tum_dosyalar_geri_buton = QtWidgets.QPushButton(self.tum_dosya_menu)
         self.tum_dosyalar_geri_buton.setGeometry(QtCore.QRect(500, 430, 75, 23))
-        self.tum_dosyalar_geri_buton.setStyleSheet("border-radius : 50;\n"
-"border : 2px solid black;")
+        self.tum_dosyalar_geri_buton.setStyleSheet(self.b)
         self.tum_dosyalar_geri_buton.setObjectName("tum_dosyalar_geri_buton")
         self.tum_dosyalar_ana_menu_buton = QtWidgets.QPushButton(self.tum_dosya_menu)
         self.tum_dosyalar_ana_menu_buton.setGeometry(QtCore.QRect(400, 430, 75, 23))
-        self.tum_dosyalar_ana_menu_buton.setStyleSheet("border-radius : 50;\n"
-"border : 2px solid black;")
+        self.tum_dosyalar_ana_menu_buton.setStyleSheet(self.b)
         self.tum_dosyalar_ana_menu_buton.setObjectName("tum_dosyalar_ana_menu_buton")
         self.stackedWidget.addWidget(self.tum_dosya_menu)
         self.hboxlayout.addWidget(self.stackedWidget)
