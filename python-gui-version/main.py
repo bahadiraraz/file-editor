@@ -1,7 +1,6 @@
 import sys
 ### MADE BY BAHADIR54
 from PyQt5.QtWidgets import QApplication,QMainWindow
-import time
 from interface import Ui_MainWindow
 import functions
 
