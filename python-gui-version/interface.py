@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import *
+import ctypes
 ### MADE BY BAHADIR54
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -8,7 +8,8 @@ class Ui_MainWindow(object):
         MainWindow.setStyleSheet(";\n"
 "background-color: rgb(54, 54, 54);")
         MainWindow.setAnimated(True)
-        MainWindow.setWindowIcon(QtGui.QIcon('python_1.ico'))
+        MainWindow.setWindowIcon(QtGui.QIcon("python_1.ico"))
+
         self.b = "QPushButton""{""border-radius : 50;""border : 2px solid black;""}""QPushButton::pressed""{""background-color : rgb(0, 0, 0) ;""color : rgb(255,255,255);""}"
 
         self.a = "QPushButton""{""background-color : red;""border-radius : 6 ;""color : black;""border : 2px solid black""}""QPushButton::pressed""{""background-color : rgb(0, 0, 0) ;""color : rgb(255,255,255);""}"
@@ -431,6 +432,8 @@ class Ui_MainWindow(object):
         self.hboxlayout.addWidget(self.stackedWidget)
         self.verticalLayout_2.addWidget(self.frame_pages)
         MainWindow.setCentralWidget(self.centralwidget)
+
+        ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("bahadir")
 
         self.retranslateUi(MainWindow)
         self.stackedWidget.setCurrentIndex(0)
