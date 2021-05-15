@@ -1,7 +1,7 @@
 import sys
 ### MADE BY BAHADIR54
 from PyQt5.QtWidgets import QApplication,QMainWindow
-
+import time
 from interface import Ui_MainWindow
 import functions
 
@@ -12,6 +12,7 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.liste = list()
+
         self.ui.dosya_islem_buton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.dosya_menu))
         self.ui.silme_islem_buton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.silme_menu))
         self.ui.silme_islem_donus_dosya.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.silme_menu))
@@ -19,7 +20,6 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_2.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.dosya_menu))
         self.ui.dizin_degisme_buton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.dizin_degisme_menu))
         self.ui.ana_menu_buton_dosya.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.ana_menu_sayfa))
-        self.ui.dizin_ana_menu.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.ana_menu_sayfa))
         self.ui.dosya_menu_buton1.clicked.connect(lambda :self.ui.stackedWidget.setCurrentWidget(self.ui.dosya_acma_menu))
         self.ui.ana_menu.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.ana_menu_sayfa))
         self.ui.geri_dosya_menu.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.dosya_menu))
@@ -33,9 +33,11 @@ class MainWindow(QMainWindow):
         self.ui.sirali_ac_menu_ana_menu.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.ana_menu_sayfa))
         self.ui.sirali_ac_menu__geri.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.dosya_menu))
         self.ui.dosya_menu_buton7.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.sadece_dosyala_menu))
+        self.ui.dosya_menu_buton7.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.sadece_dosyala_menu))
         self.ui.dosya_menu_buton8.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.sadece_dosyala_menu))
         self.ui.sadece_dosya_ana_menu.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.ana_menu_sayfa))
         self.ui.sadece_dosya_geri.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.dosya_menu))
+        self.ui.dizin_ana_menu.clicked.connect(self.dizin_menu)
         self.ui.dosya_sil_buton.clicked.connect(self.sadece)
         self.ui.full_temizle_buton.clicked.connect(self.temizle)
         self.ui.sirali_acma_buton.clicked.connect(self.sirali)
@@ -48,6 +50,11 @@ class MainWindow(QMainWindow):
         self.ekle()
         self.show()
         self.tum()
+    def dizin_menu(self):
+        self.ui.stackedWidget.setCurrentWidget(self.ui.ana_menu_sayfa)
+        self.ui.dizin_uyari.clear()
+        self.ui.dizin_gir.clear()
+
     def txt(self):
 
         functions.komut.txt_olstur(self.ui.txt_olustur_yazma.text())
@@ -94,12 +101,17 @@ class MainWindow(QMainWindow):
 
 
     def degis(self):
-        functions.komut.dizin_degis(self.ui.dizin_gir.text())
-        self.ekle()
-        self.genel()
-        self.tum()
-        print(functions.konum.path)
-        print(functions.konum.dosyaicerigi)
+        try:
+            functions.komut.dizin_degis(self.ui.dizin_gir.text())
+            self.ui.dizin_uyari.setText("dizin degistirildi")
+
+            self.ekle()
+            self.genel()
+            self.tum()
+            print(functions.konum.path)
+            print(functions.konum.dosyaicerigi)
+        except FileNotFoundError:
+            self.ui.dizin_uyari.setText("yanlis dizin")
     def git(self):
         a=int(self.ui.git_ac_sayac.text())
         functions.komut.git_create(a)

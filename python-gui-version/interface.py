@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from PyQt5.QtWidgets import *
 ### MADE BY BAHADIR54
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -8,6 +8,7 @@ class Ui_MainWindow(object):
         MainWindow.setStyleSheet(";\n"
 "background-color: rgb(54, 54, 54);")
         MainWindow.setAnimated(True)
+        MainWindow.setWindowIcon(QtGui.QIcon('python_1.ico'))
         self.b = "QPushButton""{""border-radius : 50;""border : 2px solid black;""}""QPushButton::pressed""{""background-color : rgb(0, 0, 0) ;""color : rgb(255,255,255);""}"
 
         self.a = "QPushButton""{""background-color : red;""border-radius : 6 ;""color : black;""border : 2px solid black""}""QPushButton::pressed""{""background-color : rgb(0, 0, 0) ;""color : rgb(255,255,255);""}"
@@ -92,7 +93,6 @@ class Ui_MainWindow(object):
         self.dosya_acma_yazi = QtWidgets.QLabel(self.dosya_menu)
         self.dosya_acma_yazi.setGeometry(QtCore.QRect(60, 60, 131, 31))
         font = QtGui.QFont()
-        font.setPointSize(8)
         self.dosya_acma_yazi.setFont(font)
         self.dosya_acma_yazi.setStyleSheet("background-color: rgb(54, 54, 54);\n"
 "border-radius: 6px;\n"
@@ -144,6 +144,7 @@ class Ui_MainWindow(object):
 "border-style: solid;\n"
 "border-color: rgb(0, 0, 0);\n"
 "color: rgb(255, 255, 255);")
+        font.setPointSize(8)
         self.tum_icerigi_goster_yazi.setObjectName("tum_icerigi_goster_yazi")
         self.dosya_menu_buton5 = QtWidgets.QPushButton(self.dosya_menu)
         self.dosya_menu_buton5.setGeometry(QtCore.QRect(210, 280, 75, 23))
@@ -269,6 +270,11 @@ class Ui_MainWindow(object):
         self.dizin_gir.setObjectName("dizin_gir")
         self.dizin_uyari = QtWidgets.QLabel(self.dizin_degisme_menu)
         self.dizin_uyari.setGeometry(QtCore.QRect(120, 230, 281, 31))
+        self.dizin_uyari.setStyleSheet("background-color: rgb(54, 54, 54);\n"
+"border-radius: 6px;\n"
+"border-style: solid;\n"
+"border-color: rgb(0, 0, 0);\n"
+"color: rgb(255, 255, 255);")
         self.dizin_uyari.setText("")
         self.dizin_uyari.setObjectName("dizin_uyari")
         self.dizin_su_anki_dizin = QtWidgets.QLabel(self.dizin_degisme_menu)
@@ -433,6 +439,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "file-editor"))
+
         self.menu_yazisi.setText(_translate("MainWindow", "menu"))
         self.dosya_islemleri_yazi.setText(_translate("MainWindow", "dosya islemleri:"))
         self.silme_islemleri_yazi.setText(_translate("MainWindow", "silme islemleri:"))
