@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-import ctypes
+import ctypes,time,random
 ### MADE BY BAHADIR54
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -10,9 +10,49 @@ class Ui_MainWindow(object):
         MainWindow.setAnimated(True)
         MainWindow.setWindowIcon(QtGui.QIcon("python_1.ico"))
 
-        self.b = "QPushButton""{""border-radius : 50;""border : 2px solid black;""}""QPushButton::pressed""{""background-color : rgb(0, 0, 0) ;""color : rgb(255,255,255);""}"
 
-        self.a = "QPushButton""{""background-color : red;""border-radius : 6 ;""color : black;""border : 2px solid black""}""QPushButton::pressed""{""background-color : rgb(0, 0, 0) ;""color : rgb(255,255,255);""}"
+        self.b = f"QPushButton""{""border-radius : 50;""border : 2px solid black;""}""QPushButton::pressed""{""background-color : rgb(0, 0, 0) ;"f"color : rgb({random.randint(0,255)},{random.randint(0,255)},{random.randint(0,255)});""}"
+
+        self.a =( f"QPushButton""{"
+	"border-style: solid;\n"
+	"border-color: #050a0e;\n"
+	"border-width: 1px;\n"
+	"border-radius: 5px;\n"
+	"color: rgb(255, 255, 255);\n"
+	"padding: 2px;\n"
+	"background-color: rgb(0, 0, 0);\n"
+"}"
+"QPushButton::default""{"
+	"border-style: solid;\n"
+	"border-color: #050a0e;\n"
+	"border-width: 1px;\n"
+	"border-radius: 5px;\n"
+	"color: #FFFFFF;\n"
+	"padding: 2px;\n"
+	"background-color: #151a1e;\n"
+"}"
+"QPushButton:hover""{"
+	"border-style: solid;\n"
+    "border-top-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #00FF00 stop:0.4 #00FF00 stop:0.5 #100E19, stop:1 #100E19);\n"
+    "border-bottom-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #100E19, stop:0.5 #100E19, stop:0.6 #00FF00 stop:1 #00FF00);\n"
+    "border-left-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #00FF00 stop:0.3 #00FF00 stop:0.7 #100E19, stop:1 #100E19);\n"
+    "border-right-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #00FF00 stop:0.3 #00FF00 stop:0.7 #100E19, stop:1 #100E19);\n"
+	"border-width: 2px;\n"
+    "border-radius: 1px;\n"
+	"color: #d3dae3;\n"
+	"padding: 2px;\n"
+"}"
+"QPushButton:pressed""{"
+	"border-style: solid;\n"
+    "border-top-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #ff1100 stop:0.4 #ff1100 stop:0.5 #100E19, stop:1 #100E19);\n"
+    "border-bottom-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #100E19, stop:0.5 #100E19, stop:0.6 #ff1100 stop:1 #ff1100);\n"
+    "border-left-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #ff1100 stop:0.3 #ff1100 stop:0.7 #100E19, stop:1 #100E19);\n"
+    "border-right-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #ff1100 stop:0.3 #ff1100 stop:0.7 #100E19, stop:1 #100E19);\n"
+	"border-width: 2px;\n"
+    "border-radius: 1px;\n"
+	"color: #d3dae3;\n"
+	"padding: 2px;\n"
+"}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setStyleSheet("color: rgb(0, 0, 0);")
         self.centralwidget.setObjectName("centralwidget")
@@ -26,6 +66,7 @@ class Ui_MainWindow(object):
         self.frame_pages.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 0, 0, 255), stop:0.166 rgba(255, 255, 0, 255), stop:0.333 rgba(0, 255, 0, 255), stop:0.5 rgba(0, 255, 255, 255), stop:0.666 rgba(0, 0, 255, 255), stop:0.833 rgba(255, 0, 255, 255), stop:1 rgba(255, 0, 0, 255));")
         self.frame_pages.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_pages.setFrameShadow(QtWidgets.QFrame.Raised)
+
         self.frame_pages.setLineWidth(0)
         self.frame_pages.setObjectName("frame_pages")
         self.hboxlayout = QtWidgets.QHBoxLayout(self.frame_pages)
@@ -233,12 +274,69 @@ class Ui_MainWindow(object):
         self.dosya_silme_yazi = QtWidgets.QLineEdit(self.silme_menu)
         self.dosya_silme_yazi.setGeometry(QtCore.QRect(130, 20, 113, 20))
         self.dosya_silme_yazi.setObjectName("dosya_silme_yazi")
+        self.dosya_silme_yazi.setStyleSheet("selection-background-color:#007b50;"
+                                                   "background-color:#1e1d23;\n"
+                                                   "border-style: solid;\n"
+                                                   "border-top-color: transparent;\n"
+                                                   "border-right-color: transparent;\n"
+                                                   "border-left-color: transparent;\n"
+                                                   "border-bottom-color: transparent;\n"
+                                                   "border-width: 1px;\n"
+                                                   "color: rgb(255, 255, 255);")
         self.dosya_silme_icerigiyazi = QtWidgets.QLineEdit(self.silme_menu)
         self.dosya_silme_icerigiyazi.setGeometry(QtCore.QRect(130, 70, 113, 20))
         self.dosya_silme_icerigiyazi.setObjectName("dosya_silme_icerigiyazi")
+        self.dosya_silme_icerigiyazi.setStyleSheet("selection-background-color:#007b50;"
+                                                     "background-color:#1e1d23;\n"
+                                                     "border-style: solid;\n"
+                                                     "border-top-color: transparent;\n"
+                                                     "border-right-color: transparent;\n"
+                                                     "border-left-color: transparent;\n"
+                                                     "border-bottom-color: transparent;\n"
+                                                     "border-width: 1px;\n"
+                                                     "color: rgb(255, 255, 255);")
         self.dosya_sil_buton = QtWidgets.QPushButton(self.silme_menu)
         self.dosya_sil_buton.setGeometry(QtCore.QRect(250, 20, 75, 23))
-        self.dosya_sil_buton.setStyleSheet(self.a)
+        self.dosya_sil_buton.setStyleSheet("QPushButton""{"
+	"border-style: solid;\n"
+	"border-color: #050a0e;\n"
+	"border-width: 1px;\n"
+	"border-radius: 5px;\n"
+	"color: rgb(255, 255, 255);\n"
+	"padding: 2px;\n"
+	"background-color: rgb(0, 0, 0);\n"
+"}"
+"QPushButton::default""{"
+	"border-style: solid;\n"
+	"border-color: #050a0e;\n"
+	"border-width: 1px;\n"
+	"border-radius: 5px;\n"
+	"color: #FFFFFF;\n"
+	"padding: 2px;\n"
+	"background-color: #151a1e;\n"
+"}"
+"QPushButton:hover""{"
+	"border-style: solid;\n"
+	"border-top-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #ff1100 stop:0.4 #ff1100 stop:0.5 #100E19, stop:1 #100E19);\n"
+    "border-bottom-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #100E19, stop:0.5 #100E19, stop:0.6 #ff1100 stop:1 #ff1100);\n"
+    "border-left-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #ff1100 stop:0.3 #ff1100 stop:0.7 #100E19, stop:1 #100E19);\n"
+    "border-right-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #ff1100 stop:0.3 #ff1100 stop:0.7 #100E19, stop:1 #100E19);\n"
+	"border-width: 2px;\n"
+    "border-radius: 1px;\n"
+	"color: #d3dae3;\n"
+	"padding: 2px;\n"
+"}"
+"QPushButton:pressed""{"
+	"border-style: solid;\n"
+	"border-top-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #00ff00, stop:0.4 #00ff00, stop:0.5 #100E19, stop:1 #100E19);\n"
+    "border-bottom-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #100E19, stop:0.5 #100E19, stop:0.6 #00ff00, stop:1 #00ff00);\n"
+    "border-left-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #00ff00, stop:0.3 #00ff00, stop:0.7 #100E19, stop:1 #100E19);\n"
+    "border-right-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #00ff00, stop:0.3 #00ff00, stop:0.7 #100E19, stop:1 #100E19);\n"
+	"border-width: 2px;\n"
+    "border-radius: 1px;\n"
+	"color: #d3dae3;\n"
+	"padding: 2px;\n"
+"}")
         self.dosya_sil_buton.setObjectName("dosya_sil_buton")
         self.icerik_sil_buton = QtWidgets.QPushButton(self.silme_menu)
         self.icerik_sil_buton.setGeometry(QtCore.QRect(250, 70, 75, 23))
@@ -263,6 +361,16 @@ class Ui_MainWindow(object):
         self.dizin_gir_yazi.setObjectName("dizin_gir_yazi")
         self.dizin_gir = QtWidgets.QLineEdit(self.dizin_degisme_menu)
         self.dizin_gir.setGeometry(QtCore.QRect(190, 140, 371, 31))
+        self.dizin_gir.setStyleSheet("selection-background-color:#007b50;"
+                                                     "background-color:#1e1d23;\n"
+                                                     "border-style: solid;\n"
+                                                     "border-top-color: transparent;\n"
+                                                     "border-right-color: transparent;\n"
+                                                     "border-left-color: transparent;\n"
+                                                     "border-bottom-color: transparent;\n"
+                                                     "border-width: 1px;\n"
+                                                     "color: rgb(255, 255, 255);")
+
         font = QtGui.QFont()
         font.setPointSize(14)
         self.dizin_gir.setFont(font)
@@ -297,6 +405,15 @@ class Ui_MainWindow(object):
         self.dosya_acma_menu_dosya_adi = QtWidgets.QLineEdit(self.dosya_acma_menu)
         self.dosya_acma_menu_dosya_adi.setGeometry(QtCore.QRect(392, 40, 181, 20))
         self.dosya_acma_menu_dosya_adi.setObjectName("dosya_acma_menu_dosya_adi")
+        self.dosya_acma_menu_dosya_adi.setStyleSheet("selection-background-color:#007b50;"
+                                        "background-color:#1e1d23;\n"
+                                        "border-style: solid;\n"
+                                        "border-top-color: transparent;\n"
+                                        "border-right-color: transparent;\n"
+                                        "border-left-color: transparent;\n"
+                                        "border-bottom-color: transparent;\n"
+                                        "border-width: 1px;\n"
+                                        "color: rgb(255, 255, 255);")
         self.geri_dosya_menu = QtWidgets.QPushButton(self.dosya_acma_menu)
         self.geri_dosya_menu.setGeometry(QtCore.QRect(490, 400, 75, 23))
         self.geri_dosya_menu.setStyleSheet(self.b)
@@ -330,6 +447,15 @@ class Ui_MainWindow(object):
         self.textEdit = QtWidgets.QTextEdit(self.sirali_ac_menu)
         self.textEdit.setGeometry(QtCore.QRect(460, 30, 131, 131))
         self.textEdit.setObjectName("textEdit")
+        self.textEdit.setStyleSheet("selection-background-color:#007b50;"
+	"background-color:#1e1d23;\n"
+	"border-style: solid;\n"
+	"border-top-color: transparent;\n"
+	"border-right-color: transparent;\n"
+	"border-left-color: transparent;\n"
+	"border-bottom-color: transparent;\n"
+	"border-width: 1px;\n"
+	"color: #a9b7c6;")
         self.yazi_8 = QtWidgets.QLabel(self.sirali_ac_menu)
         self.yazi_8.setGeometry(QtCore.QRect(270, 30, 141, 31))
         self.yazi_8.setObjectName("yazi_8")
@@ -382,6 +508,15 @@ class Ui_MainWindow(object):
         self.uzanti_yazma = QtWidgets.QLineEdit(self.sadece_dosyala_menu)
         self.uzanti_yazma.setGeometry(QtCore.QRect(330, 100, 113, 20))
         self.uzanti_yazma.setObjectName("uzanti_yazma")
+        self.uzanti_yazma.setStyleSheet("selection-background-color:#007b50;"
+	"background-color:#1e1d23;\n"
+	"border-style: solid;\n"
+	"border-top-color: transparent;\n"
+	"border-right-color: transparent;\n"
+	"border-left-color: transparent;\n"
+	"border-bottom-color: transparent;\n"
+	"border-width: 1px;\n"
+	"color: rgb(255, 255, 255);")
         self.yazi_6 = QtWidgets.QLabel(self.sadece_dosyala_menu)
         self.yazi_6.setGeometry(QtCore.QRect(240, 100, 71, 21))
         self.yazi_6.setObjectName("yazi_6")
@@ -392,6 +527,15 @@ class Ui_MainWindow(object):
         self.txt_olustur_yazma = QtWidgets.QLineEdit(self.sadece_dosyala_menu)
         self.txt_olustur_yazma.setGeometry(QtCore.QRect(330, 160, 113, 20))
         self.txt_olustur_yazma.setObjectName("txt_olustur_yazma")
+        self.txt_olustur_yazma.setStyleSheet("selection-background-color:#007b50;"
+                                                     "background-color:#1e1d23;\n"
+                                                     "border-style: solid;\n"
+                                                     "border-top-color: transparent;\n"
+                                                     "border-right-color: transparent;\n"
+                                                     "border-left-color: transparent;\n"
+                                                     "border-bottom-color: transparent;\n"
+                                                     "border-width: 1px;\n"
+                                                     "color: rgb(255, 255, 255);")
         self.yazi_7 = QtWidgets.QLabel(self.sadece_dosyala_menu)
         self.yazi_7.setGeometry(QtCore.QRect(240, 160, 71, 16))
         self.yazi_7.setObjectName("yazi_7")
@@ -431,6 +575,7 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.tum_dosya_menu)
         self.hboxlayout.addWidget(self.stackedWidget)
         self.verticalLayout_2.addWidget(self.frame_pages)
+        self.dizin_gir.update()
         MainWindow.setCentralWidget(self.centralwidget)
 
         ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("bahadir")
@@ -438,6 +583,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

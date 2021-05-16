@@ -1,16 +1,19 @@
-import sys
+import sys,random,time,functions
 ### MADE BY BAHADIR54
 from PyQt5.QtWidgets import QApplication,QMainWindow
 from interface import Ui_MainWindow
-import functions
+
 
 
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
+        self.last_call = time.time()
+        self.update()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.liste = list()
+        self.g = 0
 
         self.ui.dosya_islem_buton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.dosya_menu))
         self.ui.silme_islem_buton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.silme_menu))
@@ -45,15 +48,40 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_3.clicked.connect(self.dosya_ekle)
         self.ui.dizin_degis_tamam.clicked.connect(self.degis)
         self.ui.txt_olustur_buton.clicked.connect(self.txt)
+
+        self.etki()
         self.genel()
         self.ekle()
         self.show()
         self.tum()
+
+
+
     def dizin_menu(self):
         self.ui.stackedWidget.setCurrentWidget(self.ui.ana_menu_sayfa)
         self.ui.dizin_uyari.clear()
         self.ui.dizin_gir.clear()
+    def etki(self):
 
+
+        self.ui.sirali_ac_uyari.setText("r")
+
+
+    def paintEvent(self, event):
+
+        self.update()
+
+    def update(self, *args, **kwargs):
+        liste = [0, 166, 333, 5, 666, 833, 999]
+
+        if time.time() - self.last_call > 0.5:
+
+                self.ui.frame_pages.setStyleSheet(f"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.{liste[(self.g % 7)]} rgba(255, 0, 0, 255), stop:0.{liste[(self.g + 1)% 7]} rgba(255, 255, 0, 255), stop:0.{liste[(self.g + 3) % 7]} rgba(0, 255, 0, 255), stop:0.{liste[(self.g + 4 )% 7]} rgba(0, 255, 255, 255), stop:0.{liste[(self.g + 5) %7]} rgba(0, 0, 255, 255), stop:0.{liste[(self.g + 6 )% 7]} rgba(255, 0, 255, 255), stop:0.{liste[(self.g + 7 )% 7]} rgba(255, 0, 0, 255));")
+                if self.g == 7: self.g = 0
+                self.g += 1
+
+                self.last_call = time.time()
+        QMainWindow.update(self, *args, **kwargs)
     def txt(self):
 
         functions.komut.txt_olstur(self.ui.txt_olustur_yazma.text())
@@ -110,7 +138,10 @@ class MainWindow(QMainWindow):
             print(functions.konum.path)
             print(functions.konum.dosyaicerigi)
         except FileNotFoundError:
-            self.ui.dizin_uyari.setText("yanlis dizin")
+            if len(self.ui.dizin_gir.text()) == 0:
+                self.ui.dizin_uyari.setText("dizin gir")
+            else:
+                self.ui.dizin_uyari.setText("yanlis dizin")
     def git(self):
         a=int(self.ui.git_ac_sayac.text())
         functions.komut.git_create(a)
@@ -154,6 +185,7 @@ class MainWindow(QMainWindow):
 
 
 if __name__ == "__main__":
+
     app = QApplication(sys.argv)
     window = MainWindow()
     sys.exit(app.exec_())
