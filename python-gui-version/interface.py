@@ -297,46 +297,7 @@ class Ui_MainWindow(object):
                                                      "color: rgb(255, 255, 255);")
         self.dosya_sil_buton = QtWidgets.QPushButton(self.silme_menu)
         self.dosya_sil_buton.setGeometry(QtCore.QRect(250, 20, 75, 23))
-        self.dosya_sil_buton.setStyleSheet("QPushButton""{"
-	"border-style: solid;\n"
-	"border-color: #050a0e;\n"
-	"border-width: 1px;\n"
-	"border-radius: 5px;\n"
-	"color: rgb(255, 255, 255);\n"
-	"padding: 2px;\n"
-	"background-color: rgb(0, 0, 0);\n"
-"}"
-"QPushButton::default""{"
-	"border-style: solid;\n"
-	"border-color: #050a0e;\n"
-	"border-width: 1px;\n"
-	"border-radius: 5px;\n"
-	"color: #FFFFFF;\n"
-	"padding: 2px;\n"
-	"background-color: #151a1e;\n"
-"}"
-"QPushButton:hover""{"
-	"border-style: solid;\n"
-	"border-top-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #ff1100 stop:0.4 #ff1100 stop:0.5 #100E19, stop:1 #100E19);\n"
-    "border-bottom-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #100E19, stop:0.5 #100E19, stop:0.6 #ff1100 stop:1 #ff1100);\n"
-    "border-left-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #ff1100 stop:0.3 #ff1100 stop:0.7 #100E19, stop:1 #100E19);\n"
-    "border-right-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #ff1100 stop:0.3 #ff1100 stop:0.7 #100E19, stop:1 #100E19);\n"
-	"border-width: 2px;\n"
-    "border-radius: 1px;\n"
-	"color: #d3dae3;\n"
-	"padding: 2px;\n"
-"}"
-"QPushButton:pressed""{"
-	"border-style: solid;\n"
-	"border-top-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #00ff00, stop:0.4 #00ff00, stop:0.5 #100E19, stop:1 #100E19);\n"
-    "border-bottom-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 #100E19, stop:0.5 #100E19, stop:0.6 #00ff00, stop:1 #00ff00);\n"
-    "border-left-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #00ff00, stop:0.3 #00ff00, stop:0.7 #100E19, stop:1 #100E19);\n"
-    "border-right-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #00ff00, stop:0.3 #00ff00, stop:0.7 #100E19, stop:1 #100E19);\n"
-	"border-width: 2px;\n"
-    "border-radius: 1px;\n"
-	"color: #d3dae3;\n"
-	"padding: 2px;\n"
-"}")
+        self.dosya_sil_buton.setStyleSheet(self.a)
         self.dosya_sil_buton.setObjectName("dosya_sil_buton")
         self.icerik_sil_buton = QtWidgets.QPushButton(self.silme_menu)
         self.icerik_sil_buton.setGeometry(QtCore.QRect(250, 70, 75, 23))

@@ -157,6 +157,21 @@ class komut():
             print("dosya bulunamadi")
         return liste
 
+    def adolstur(self,a,b):
+
+        def basarisz(a):
+            try:
+                if rf"{a}.{b}" not in konum.dosyaicerigi:
+                    with open(rf"{a}.{b}","a") as fp:
+                        pass
+                    print(rf"{a}.{b} olusturuldu")
+                else:
+                    print("bu dosya zaten var")
+            except FileExistsError:
+                print("bu dosya zaten var")
+                return
+        basarisz(a)
+        return
 
     def txt_olstur(self,a):
 

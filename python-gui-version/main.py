@@ -74,7 +74,7 @@ class MainWindow(QMainWindow):
     def update(self, *args, **kwargs):
         liste = [0, 166, 333, 5, 666, 833, 999]
 
-        if time.time() - self.last_call > 0.5:
+        if time.time() - self.last_call > 0.1:
 
                 self.ui.frame_pages.setStyleSheet(f"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.{liste[(self.g % 7)]} rgba(255, 0, 0, 255), stop:0.{liste[(self.g + 1)% 7]} rgba(255, 255, 0, 255), stop:0.{liste[(self.g + 3) % 7]} rgba(0, 255, 0, 255), stop:0.{liste[(self.g + 4 )% 7]} rgba(0, 255, 255, 255), stop:0.{liste[(self.g + 5) %7]} rgba(0, 0, 255, 255), stop:0.{liste[(self.g + 6 )% 7]} rgba(255, 0, 255, 255), stop:0.{liste[(self.g + 7 )% 7]} rgba(255, 0, 0, 255));")
                 if self.g == 7: self.g = 0
