@@ -39,6 +39,7 @@ class MainWindow(QMainWindow):
         self.ui.dosya_menu_buton8.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.sadece_dosyala_menu))
         self.ui.sadece_dosya_ana_menu.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.ana_menu_sayfa))
         self.ui.sadece_dosya_geri.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.dosya_menu))
+        self.ui.icerik_sil_buton.clicked.connect(self.icerik_sil)
         self.ui.dizin_ana_menu.clicked.connect(self.dizin_menu)
         self.ui.dosya_sil_buton.clicked.connect(self.sadece)
         self.ui.full_temizle_buton.clicked.connect(self.temizle)
@@ -61,6 +62,12 @@ class MainWindow(QMainWindow):
         self.ui.stackedWidget.setCurrentWidget(self.ui.ana_menu_sayfa)
         self.ui.dizin_uyari.clear()
         self.ui.dizin_gir.clear()
+    def icerik_sil(self):
+        a = self.ui.dosya_silme_icerigiyazi.text()
+        functions.komut.delete(a)
+        self.ui.dosya_silme_icerigiyazi.clear()
+        self.ekle()
+        self.tum()
     def etki(self):
 
 
@@ -74,7 +81,7 @@ class MainWindow(QMainWindow):
     def update(self, *args, **kwargs):
         liste = [0, 166, 333, 5, 666, 833, 999]
 
-        if time.time() - self.son > 0.3:
+        if time.time() - self.son > 0.1:
 
                 self.ui.frame_pages.setStyleSheet(f"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.{liste[(self.g % 7)]} rgba(255, 0, 0, 255), stop:0.{liste[(self.g + 1)% 7]} rgba(255, 255, 0, 255), stop:0.{liste[(self.g + 3) % 7]} rgba(0, 255, 0, 255), stop:0.{liste[(self.g + 4 )% 7]} rgba(0, 255, 255, 255), stop:0.{liste[(self.g + 5) %7]} rgba(0, 0, 255, 255), stop:0.{liste[(self.g + 6 )% 7]} rgba(255, 0, 255, 255), stop:0.{liste[(self.g + 7 )% 7]} rgba(255, 0, 0, 255));")
                 if self.g == 7: self.g = 0
@@ -143,11 +150,15 @@ class MainWindow(QMainWindow):
             else:
                 self.ui.dizin_uyari.setText("yanlis dizin")
     def git(self):
-        a=int(self.ui.git_ac_sayac.text())
-        functions.komut.git_create(a)
-        self.ui.git_ac_sayac.clear()
-        self.ekle()
-        self.tum()
+        try:
+            a=int(self.ui.git_ac_sayac.text())
+
+            functions.komut.git_create2(a)
+            self.ui.git_ac_sayac.clear()
+            self.ekle()
+            self.tum()
+        except ValueError:
+            pass
 
         self.ui.dizin_gir.clear()
     def sirali(self):

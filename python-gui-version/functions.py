@@ -26,7 +26,6 @@ class komut():
             self.icerikgoster()
 
             def dene(a):
-
                 shutil.rmtree(a)
                 print("silme islemi basarili")
                 konum.dosyaicerigi = os.listdir(konum.path)
@@ -38,14 +37,19 @@ class komut():
 
 
 
-    def delete(self):
+    def delete(self,a):
         try:
             self.icerikgoster()
-            a = input("icerigini silmek istediginiz dosya adi")
-            d = f"{konum.path}{a}"
+
+            d = rf"{konum.path}\{a}"
             icerik = os.listdir(d)
+
+
             for file in icerik:
-                os.rmdir(rf'{d}\{file}')
+                try:
+                    shutil.rmtree(rf'{d}\{file}')
+                except OSError:
+                    os.remove(rf'{d}\{file}')
             konum.dosyaicerigi = os.listdir(konum.path)
         except FileNotFoundError:
             print("boyle bir klasor yok")
@@ -65,6 +69,23 @@ class komut():
         except FileExistsError:
             print("olusturmaya calistiginiz sayilarda dosya var")
             return self.git_create()
+    def git_create2(self,a):
+        try:
+
+            for i in range(1, a +1):
+                konum.dosyaicerigi = os.listdir(konum.path)
+                print(konum.dosyaicerigi)
+                if rf"00{i}" not in konum.dosyaicerigi:
+                    os.makedirs(rf"{konum.path}\00{i}")
+                else:
+                    pass
+            konum.dosyaicerigi = os.listdir(konum.path)
+        except  ValueError:
+            print("sayi gir aqdum")
+            return
+        except FileExistsError:
+            print("olusturmaya calistiginiz sayilarda dosya var")
+            return
 
     def sirali_girme(self,b):
         try:
@@ -110,7 +131,11 @@ class komut():
         konum.dosyaicerigi = os.listdir(konum.path)
         icerik = konum.dosyaicerigi
         for file in icerik:
-            os.rmdir(rf'{konum.path}\{file}')
+            try:
+                os.rmdir(rf'{konum.path}\{file}')
+            except Exception:
+                os.remove(rf'{konum.path}\{file}')
+
         konum.dosyaicerigi = os.listdir(konum.path)
 
 
