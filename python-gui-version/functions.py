@@ -1,12 +1,18 @@
-import sys,os,shutil,time
+import sys, os, shutil, time
+
+
 class konum():
-    def __init__(self,path=rf"{os.getcwd()}",dosyaicerigi=os.listdir(rf"{os.getcwd()}")):
+    def __init__(self, path=rf"{os.getcwd()}", dosyaicerigi=os.listdir(rf"{os.getcwd()}")):
         self.path = path
         self.dosyaicerigi = dosyaicerigi
 
-konum= konum()
+
+konum = konum()
+
+
 class komut():
     konum.dosyaicerigi = os.listdir(konum.path)
+
     def create(self, a):
         konum.dosyaicerigi = os.listdir(konum.path)
         try:
@@ -14,14 +20,12 @@ class komut():
             os.makedirs(a)
             konum.dosyaicerigi = os.listdir(konum.path)
 
-
         except FileNotFoundError:
             pass
         except FileExistsError:
             pass
 
-
-    def silme(self,a):
+    def silme(self, a):
         try:
             self.icerikgoster()
 
@@ -29,21 +33,18 @@ class komut():
                 shutil.rmtree(a)
                 print("silme islemi basarili")
                 konum.dosyaicerigi = os.listdir(konum.path)
+
             dene(a)
 
         except FileNotFoundError:
             print("boyle bir klasor yok")
 
-
-
-
-    def delete(self,a):
+    def delete(self, a):
         try:
             self.icerikgoster()
 
             d = rf"{konum.path}\{a}"
             icerik = os.listdir(d)
-
 
             for file in icerik:
                 try:
@@ -55,24 +56,21 @@ class komut():
             print("boyle bir klasor yok")
             return self.delete()
 
-
-
-    def git_create(self,a):
+    def git_create(self, a):
         try:
-
-            for i in range(1, a +1):
+            for i in range(1, a + 1):
                 os.makedirs(rf"{konum.path}\00{i}")
             konum.dosyaicerigi = os.listdir(konum.path)
         except  ValueError:
-            print("sayi gir aqdum")
+            print("lutfen sayi giriniz")
             return self.git_create()
         except FileExistsError:
             print("olusturmaya calistiginiz sayilarda dosya var")
             return self.git_create()
-    def git_create2(self,a):
-        try:
 
-            for i in range(1, a +1):
+    def git_create2(self, a):
+        try:
+            for i in range(1, a + 1):
                 konum.dosyaicerigi = os.listdir(konum.path)
                 print(konum.dosyaicerigi)
                 if rf"00{i}" not in konum.dosyaicerigi:
@@ -81,32 +79,32 @@ class komut():
                     pass
             konum.dosyaicerigi = os.listdir(konum.path)
         except  ValueError:
-            print("sayi gir aqdum")
+            print("lutfen sayi giriniz")
             return
         except FileExistsError:
             print("olusturmaya calistiginiz sayilarda dosya var")
             return
 
-    def sirali_girme(self,b):
+    def sirali_girme(self, b):
         try:
 
             i = 1
             for j in b:
                 os.makedirs(rf"{konum.path}\{str(i).zfill(2)}-{j}")
                 print(rf"{konum.path}\{str(i).zfill(2)}-{j}")
-                i +=1
+                i += 1
             konum.dosyaicerigi = os.listdir(konum.path)
 
         except FileExistsError:
             print("olusturmaya calistiginiz dosya var")
             pass
 
-
-    def dizin_degis(self,a):
+    def dizin_degis(self, a):
 
         konum.path = rf"{a}"
         konum.dosyaicerigi = os.listdir(rf"{a}")
         os.chdir(a)
+
     def ilk(self):
         try:
             a = input("path giriniz")
@@ -120,13 +118,12 @@ class komut():
     def icerikgoster(self):
         konum.dosyaicerigi = (os.listdir(konum.path))
         liste = []
+
         for i in konum.dosyaicerigi:
             liste.append(i)
 
-
-
-
         return liste
+
     def full_temizle(self):
         konum.dosyaicerigi = os.listdir(konum.path)
         icerik = konum.dosyaicerigi
@@ -138,38 +135,36 @@ class komut():
 
         konum.dosyaicerigi = os.listdir(konum.path)
 
-
     def tumicerik(self):
         for i, j, k in os.walk(konum.path):
-
             liste = ["\nklasor yolu :" + i]
 
             liste.append("klasor isimleri: " + " ".join(map(str, j)))
             liste.append("dosya isimleri: " + " ".join(map(str, k)))
-            liste.append("".join(map(str,"----------------------")))
+            liste.append("".join(map(str, "----------------------")))
             return (liste)
-
 
     def isim_degis(self):
         try:
             komut.icerikgoster()
             a = input("ismini degismek isediginiz dosya adi:")
             b = input("ne yapacaksin:")
-            def degis(a,b):
+
+            def degis(a, b):
 
                 os.rename(a, b)
                 print("islem basarili")
-            degis(a,b)
+
+            degis(a, b)
             return dosya.asil()
         except FileNotFoundError:
             print("boyle bir dosya yok")
             return komut.isim_degis()
 
-
     def dosyalar(self):
         sayi = 0
         print(f"su anki konum: {konum.path}")
-        
+
         liste = list()
         for i, j, k in os.walk(konum.path):
 
@@ -182,12 +177,12 @@ class komut():
             print("dosya bulunamadi")
         return liste
 
-    def adolstur(self,a,b):
+    def adolstur(self, a, b):
 
         def basarisz(a):
             try:
                 if rf"{a}.{b}" not in konum.dosyaicerigi:
-                    with open(rf"{a}.{b}","a") as fp:
+                    with open(rf"{a}.{b}", "a") as fp:
                         pass
                     print(rf"{a}.{b} olusturuldu")
                 else:
@@ -195,15 +190,16 @@ class komut():
             except FileExistsError:
                 print("bu dosya zaten var")
                 return
+
         basarisz(a)
         return
 
-    def txt_olstur(self,a):
+    def txt_olstur(self, a):
 
         def basarisz(a):
             try:
                 if rf"{a}.txt" not in konum.dosyaicerigi:
-                    with open(rf"{a}.txt","a") as fp:
+                    with open(rf"{a}.txt", "a") as fp:
                         pass
                     print(rf"{a}.txt olusturuldu")
                 else:
@@ -211,28 +207,20 @@ class komut():
             except FileExistsError:
                 print("bu dosya zaten var")
                 return
+
         basarisz(a)
         return
 
-
-
-    def dosya_bul_uzanti(self,a):
-
+    def dosya_bul_uzanti(self, a, sayi=0, liste=list()):
         for i, j, k in os.walk(konum.path):
-            sayi =0
-            liste =list()
             for t in k:
                 if t.endswith(rf"{a}"):
-                    print(i,t,"-----------",sep="\n")
-                    sayi +=1
+                    print(y := (i + "\\" + t), t, "-----------", sep="\n")
+                    sayi += 1
                     liste.append(t)
-            return liste
         if sayi == 0:
             print(rf"bu klasorde {a} uzantili dosya bulunamadi")
-
-
-
-
+        return liste
 
     def dosya_ac(self):
         while True:
@@ -252,26 +240,25 @@ class komut():
         return len((konum.dosyaicerigi))
 
 
-
-
-
 komut = komut()
+
+
 class dosya():
     def __init__(self):
         self.secenek = {
             "1": komut.dosya_ac,
-            "2":komut.git_create,
-            "3":komut.sirali_girme,
-            "4":komut.isim_degis,
-            "5":komut.tumicerik,
-            "6":komut.dosyalar,
-            "7":komut.txt_olstur,
-            "8":komut.dosya_bul_uzanti,
+            "2": komut.git_create,
+            "3": komut.sirali_girme,
+            "4": komut.isim_degis,
+            "5": komut.tumicerik,
+            "6": komut.dosyalar,
+            "7": komut.txt_olstur,
+            "8": komut.dosya_bul_uzanti,
             "q": self.quit
         }
 
-    def menu_goster(self,):
-            return (rf"""
+    def menu_goster(self, ):
+        return (rf"""
 {konum.path}
 menu
 1.dosya acma
@@ -285,7 +272,6 @@ menu
 ana menuye donmek icin q 
     """)
 
-
     def asil(self):
 
         while True:
@@ -296,11 +282,17 @@ ana menuye donmek icin q
                 dogrulama()
             else:
                 print(f"{secenek} yanlis bir islem")
+
     def quit(self):
         return Menu().asil()
+
+
 dosya = dosya()
+
+
 class silme():
     konum.dosyaicerigi = os.listdir(konum.path)
+
     def __init__(self):
         self.secenek = {
             "1": komut.silme,
@@ -309,7 +301,7 @@ class silme():
             "q": self.quit
         }
 
-    def menu_goster(self,):
+    def menu_goster(self, ):
         print("""
 menu
 1.dosya silme
@@ -330,25 +322,27 @@ q.ana menuye donme
             else:
                 print(f"{secenek} yanlis bir islem")
 
-
     def quit(self):
         return Menu().asil()
+
+
 silme = silme()
+
+
 class Menu:
     try:
 
         def __init__(self):
 
             self.secenek = {
-                    "1":dosya.asil,
-                    "2":silme.asil,
-                    "3":komut.dizin_degis,
-                    "4":lambda: print(Menu.__str__(self)),
-                    "q":self.quit
-                    }
+                "1": dosya.asil,
+                "2": silme.asil,
+                "3": komut.dizin_degis,
+                "4": lambda: print(Menu.__str__(self)),
+                "q": self.quit
+            }
 
-
-        def menu_goster(self,):
+        def menu_goster(self, ):
 
             return ("""
 menu
@@ -358,7 +352,6 @@ menu
 4.genel ozelliklleri
 cikmak icin q ya basin
     """)
-
 
         def asil(self):
 
@@ -370,9 +363,6 @@ cikmak icin q ya basin
                     dogrulama()
                 else:
                     print(rf"{secenek} yanlis bir islem")
-
-
-
 
         def quit(self):
             print("gorusuruz")
@@ -388,8 +378,6 @@ cikmak icin q ya basin
             return "\n".join(liste)
     except FileNotFoundError:
         print("boye bir path yok")
-
-
 
 
 if __name__ == "__main__":
